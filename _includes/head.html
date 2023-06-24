@@ -1,5 +1,5 @@
 <!-- The Head -->
-
+ 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
@@ -10,7 +10,9 @@
     name="viewport"
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
-
+{% if page.use_math %}
+  {% include mathjax_support.html %}
+{% endif %}
   {% capture seo_tags %}
     {% seo title=false %}
   {% endcapture %}
