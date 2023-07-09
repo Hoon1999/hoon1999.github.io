@@ -15,14 +15,14 @@ tags:
 해결하기 위해 굉장히 다양한 방법을 시도하였고, 결과적으로는 성공하긴 했지만 100% 무지식상태에서 해결한 방법이다.  
 즉 야매로 해결한 것이기 때문에 잘 아는 사람 입장에서 보면 방법이 이상해 보일수도 있고, 다른 사람들은 해결이 되지 않을 수 있다.  
 
-1. 깃허브랑 연결된 로컬폴더 안의 모든 파일 삭제<br>
+## 1. 깃허브랑 연결된 로컬폴더 안의 모든 파일 삭제
 ![2023-06-26_1](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/a6b6539c-7baa-450f-8d3d-d03f063b9e21)  
 모든 파일을 삭제하라길래 냅다 삭제했더니 .git 폴더까지 같이 삭제했다.<br>
 .git 폴더를 삭제하면 깃허브 원격디렉토리와 로털 디렉토리의 참조 관계가 사라진다.<br>
 .git 폴더가 뭔지 몰랐던 나는 나중에서야 푸시할때 문제가 있다는 것을 알아차렸다.<br>
 git을 잘 알고 있다면 명령어를 사용해 만들면 되지만, 나같이 잘 모르는 초보자는 명령어로 생성해도 괜히 찝집함이 있다.<br>
 
-2. assets/js/dist/*.min.js not found<br>
+## 2. assets/js/dist/*.min.js not found
 bundle exec jekyll serve 명령어를 사용해서 테스트를 해보면 아래와같은 오류를 발견할 수 있다.<br>
 ![2023-06-26_2](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/8ad22535-f455-4436-9b28-5e7b751ef5b4)  
 home 을 누르면 home.min.js를 찾을 수 없다하고<br>
@@ -38,7 +38,7 @@ _config 파일에 assets/js를 참조하는 곳을 전부 공백으로도 바꿔
 <span style="color: #808080">덕분에 min.js파일이 뭔지도 알게되었다...</span><br>
 ![2023-06-26_11](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/02ae9248-23c0-454d-a3b0-a7a9ed069072)  
 <span style="color: #808080">에러좀 무시하고 넘어가주면 안되겠니</span><br>
-3. 커밋이 안되는 문제<br>
+## 3. 커밋이 안되는 문제
 ![2023-06-26_6](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/0cb9b53d-7716-4e1c-8e44-9e33960adec9)  
 2번 까지 하고 커밋을 하려고하면 변동사항이 없다고 커밋이 안된다.<br>
 깃허브를 기존에 사용하는 사람이라면 이유를 알겠지만 난 처음이었기에 여기서도 매우 해맸다.<br>
@@ -47,7 +47,7 @@ _config 파일에 assets/js를 참조하는 곳을 전부 공백으로도 바꿔
 ![2023-06-26_5](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/566b5685-1e23-4742-8493-18f79a4dfd22)  
 <span style="color: #808080">#이 주석처리인줄 알고 한거였는데 알고보니 다른 문법이었다. 결과적으론 목록에서 빠지니 문제없이 작동은 된다..</span><br>
 
-4. 미래로 설정된 파일이 열리지 않는 문제<br>
+## 4. 미래로 설정된 파일이 열리지 않는 문제
 분명 포스트를 작성했음에도 불구하고 home에서 보이지 않는다.<br>
 그런 상황에서 cmd 창을 보면 skiped : 미래로 설정된 파일... 이 출력된다.<br>
 <span style="color: #808080">분명 오늘 날짜인데..</span><br>
@@ -55,7 +55,7 @@ _config 파일에 assets/js를 참조하는 곳을 전부 공백으로도 바꿔
 구글에서 찾아보니 _config.yml 파일에 future: true 를 넣으면 된다고 한다. future: 와 true 사이에 띄어쓰기를 반드시 해줘야 한다고 함.<br>
 그런데 당췌 어디에 넣어야 되는지 몰라서 제일 위 line에 넣었더니 잘 작동된다^^.<br>
 
-5. --- layout: home #index page ---<br>
+## 5. --- layout: home #index page ---
 ![2023-06-26_8](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/5426e63c-bbee-4843-b8da-6178e513a35f)  
 이건 [여기](https://jooheekim0713.github.io/posts/%EA%B9%83%EB%B8%94%EB%A1%9C%EA%B7%B8-chirpy-theme-%EC%98%A4%EB%A5%98%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/)를 참고했다.<br>
 시키는 대로 bundle lock --add-platform x86_64-linux 를 한다.<br>
