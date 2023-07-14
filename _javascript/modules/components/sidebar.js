@@ -2,11 +2,11 @@
  * Expand or close the sidebar in mobile screens.
  */
 
-const $body = $('body sidebar-display');
+const $body = $('body');
 const ATTR_DISPLAY = 'sidebar-display';
 
 class SidebarUtil {
-  static isExpanded = true;
+  static isExpanded = false;
 
   static toggle() {
     if (SidebarUtil.isExpanded === false) {
