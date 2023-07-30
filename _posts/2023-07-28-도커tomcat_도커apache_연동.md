@@ -32,7 +32,7 @@ dockerfile로 한번에 세팅하는 경우는 이미 세팅한 apache와 mariaD
 mod_jk를 설치하고 경로 설정을 해주었다. 이경우 하나의 C드라이브에 apache 와 WAS(tomcat 등) 설치파일이 같이 공존한다.  <br>
 그래서 그냥 mod_jk를 설치하고, 경로를 제약없이 줄 수 있다.  <br>
 문제는 이게 원래 같은 저장장치에 존재해야만 가능한건지, 아니면 물리적으로 분리된 저장장치에서도 가능한건지 알 방법이 없었다.  <br>
-그러다가 거듭된 검색 끝에 tier 2, tier 3 라는 개념을 발견하게 되었고 분리된 저장장치에서도 가능하다는 것을 알게되었다. 여기까지 3시간 걸렸다.  <br>
+그러다가 거듭된 검색 끝에 tier 2, tier 3 라는 개념을 발견하게 되었고 분리된 저장장치에서도 가능하다는 것을 알게되었다.<sup>[출처](https://www.phpschool.com/link/qna_install/125545)</sup> 여기까지 3시간 걸렸다.  <br>
 일단 mod_jk를 apache에 먼저 설치하겠다는 생각으로 진행하였다.  <br>
   <br>
 두번째 문제는 tomcat 컨테이너 생성에 실패하는 문제였다.  <br>
@@ -78,7 +78,7 @@ docker run -d --name tomcat -p 8888:8080 -v \<호스트폴더\>:/usr/local/tomca
 404에러가 나오면 정상 작동입니다. 포트를 8888:8080 이 아닌 다른걸로 설정 했다면 일단 넘어가고 아래에서 해결합니다.<br>
 
 ## Apache 에 mod_jk 설치
-<sup>[출처](https://출처)</sup>
+<sup>[출처](https://da2uns2.tistory.com/entry/Docker-Apache-TomcatSpringBoot-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0-modjk)</sup>
 ```
 docker container start <컨테이너이름>
 ```
