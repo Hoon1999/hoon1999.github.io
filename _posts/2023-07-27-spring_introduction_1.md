@@ -33,12 +33,13 @@ Artifact 명은 빌드명입니다. 자유롭게 작성합니다. <br>
 <br>
 
 ## 파일열기
+![2023-07-31_1](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/99922be9-724c-4487-972b-3305f206d700){: .normal}<br>
 스프링 부트 스타터에서 다운받은 파일을 압축해제합니다.<br>
 intelliJ IDE 에서 open 을 누르고 압축해제한 폴더로 갑니다.<br>
 build.gradle 파일을 선택하고 open 합니다.<br>
 
 ## 자동으로 설정된 파일들 둘러보기
-
+![2023-07-31_2](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/83ab6e5f-ba8d-468f-9ab3-a79e6cd1711b){: .normal}<br>
 가장 처음으로 볼 파일은 bundle.gradle 입니다.<br>
 스프링 부트 스타터에서 설정한 값들이 보입니다.<br>
 dependencies 블럭을 보면 thymeleaf, spring web, test 가 있습니다.<br>
@@ -46,10 +47,13 @@ test 는 자동으로 들어가는 라이브러리라고 합니다. JUnit 설명
 <br>
 repositories 블럭은 라이브러리를 다운받는 경로입니다. mavenCentral()도 경로 중 하나입니다.<br>
 <br>
+![2023-07-31_3](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/730490c0-c032-4ee9-8e4f-bed093452d88){: .normal}<br>
 이번엔 src를 살펴봅니다.<br>
 src를 누르면 main과 test로 나뉘는데, test는 테스트코드와 관련된 폴더라고 합니다.<br>
 main으로 들어가면 java와 resources로 나뉩니다. resources는 java외 모든 파일들이 포함됩니다.<br>
 <br>
+![2023-07-31_4](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/d5815080-2dbc-411c-aeb7-68891d7fd187){: .normal}<br>
+![2023-07-31_5](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/09bc7342-d5ed-4915-8f43-f2b788cc00db){: .normal}<br>
 main/그룹명.아티팩트명/아티팩트명Application.java 파일을 눌러보면 main 메소드를 볼 수 있습니다. <br>
 main 메소드의 왼쪽에 실행을 눌러 실행합니다.<br>
 이후 콘솔창을 보면 tomcat이 실행되는 것을 확인할 수 있고, 8080포트를 사용하는것을 볼 수 있습니다.<br>
@@ -58,11 +62,14 @@ main 메소드의 왼쪽에 실행을 눌러 실행합니다.<br>
 지금은 welcome page(기본 웹페이지)가 없어서 에러가 나옵니다.<br>
 
 ## 라이브러리 둘러보기
+![2023-07-31_6](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/9b4b160a-2b39-4167-9289-6502e23224c6){: .normal}<br>
 라이브러리는 좌측의 external libraries에서 볼 수 있고, 의존관계는 우측상단 gradle에서 볼 수 있습니다.<br>
 우측 상단에 gradle - dependencies - compile class path 를 누르면 thymeleaf 와 web을 볼 수 있습니다.<br>
+![2023-07-31_7](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/2b2015a6-fe5d-4b8c-ab96-dc7b5deca3dc){: .normal}<br>
 의존에 의존에 의존관계 등을 볼 수 있고, web이 톰캣을 의존하고 있는것을 볼 수 있습니다.<br>
 
 ## 뷰 동작환경 학습
+![2023-07-31_8](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/09f3d754-dc61-461b-a9f9-8e1b4afc997b){: .normal}<br>
 welcome page의 기본 경로는 resources/static/index.html 입니다.<br>
 ```
 <!DOCTYPE HTML>
@@ -79,8 +86,10 @@ Hello
 ```
 static 에 우클릭으로 새 파일(index.html)을 만들고, 위 코드를 붙여넣습니다.<br>
 코드를 읽어보면 ```Hello hello``` 가 출력되고 hello에 링크가 걸려있는것을 볼 수 있습니다.<br>
+![2023-07-31_9](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/9b3df09d-011b-49b9-951b-8c41a4732313){: .normal}<br>
 hello를 클릭하면 get 방식으로 서버에 hello를 요청하게 됩니다.<br>
 <br>
+![2023-07-31_10](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/6ac5c876-b1fd-4e41-bec5-8460b511cdb9){: .normal}<br>
 java -> 그룹명.아티팩트명 -> controller 에 new java class를 만듭니다.<br>
 클래스명은 HelloController 로 합니다.<br>
 ```
@@ -138,5 +147,7 @@ C:hello-spring\build\libs> java -jar hello-spring-0.0.1-SNAPSHOT.jar // 실행
 //localhost:8080 접속해서 실행여부 확인하기
 //control c 눌러서 종료
 ```
+배포할 때는 hello-spring.0.0.1-SNAPSHOT.jar 파일만 배포하면 된다고 한다.<br>
+근데 왜 그런지는 모르겠음. hello.html 같은 resource 파일들도 다 포함이 되어있나??<br>
 
 -끝-
