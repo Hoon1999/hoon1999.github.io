@@ -1,12 +1,13 @@
 ---
-title: 도커 톰캣 아파치 연동
+title: 도커 Tomcat Apache 연동
 date: 2023-07-28 14:28:00 +09:00
 categories: [가상환경, Docker]
 tags:
   [
     가상환경,
     Docker,
-    Tomcat
+    Tomcat,
+	mod_jk
   ]
 ---
 
@@ -65,7 +66,7 @@ host 에서 container로 갈때만 loopback 주소로 통신(?) 하는거고, co
 저는 tomcat이라는 이름의 폴더를 만들었습니다.<br>
 <br>
 그 다음은 apache 컨테이너를 생성하였을 때와 동일한 방법으로 tomcat 컨테이너를 만들어줍니다.<br>
-사진1{: .normal} <br>
+![2023-07-28_1](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/ba921d41-b525-47a7-a06b-2030a37b4435){: .normal} <br>
 ```
 docker run -d --name \<이름\> -p \<호스트포트\>:\<컨테이너포트\> -v \<호스트폴더\>:\<컨테이너폴더\> \<image이름\>:\<버전\>
 docker run -d --name tomcat -p 8888:8080 -v \<호스트폴더\>:/usr/local/tomcat/webapps tomcat
@@ -82,7 +83,7 @@ docker run -d --name tomcat -p 8888:8080 -v \<호스트폴더\>:/usr/local/tomca
 docker container start <컨테이너이름>
 ```
 도커에서 apache 를 실행합니다.<br>
-사진2{: .normal}
+![2023-07-28_2](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/a978d6b8-8c75-4946-88a0-ed6de84c4dc1){: .normal}
 터미널로 접속합니다.<br>
 <br>
 ```
@@ -169,16 +170,21 @@ worker1의 주소는 workers.properties에서 지정합니다.<br>
 확장자를 안주면 모든 파일을 tomcat에게 요청하게 됩니다. 이는 선택사항입니다.<br>
 <br>
 LoadModule 에는 경로를 module/mod_jk.so 로 주었습니다.<br>
-해당 경로에 파일이 있는지 확인하기위해 ```# fine / -name mod_jk.so```를 입력합니다.<br>
+해당 경로에 파일이 있는지 확인하기위해 ```# fine / -name "mod_jk.so"```를 입력합니다.<br>
 <br>
-사진3{: .normal}<br>
+![2023-07-31_3](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/52b0b5e0-9fd1-40dd-a1e7-3b7c99db252b){: .normal}<br>
+![2023-07-31_4](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/4007fe95-d00c-4b52-b83f-c4cb11da8b5f){: .normal}<br>
 만약 위 사진처럼 apache2/modules/ 위치에 없다면 옮겨줍니다.<br>
+![2023-07-31_5](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/02065d5c-f1ed-40ba-83f0-ec40044ff8c4){: .normal}<br>
+![2023-07-31_6](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/0502c93f-c10e-471c-a6bd-f2c9cfd1ad4d){: .normal}<br>
 ```
 # cd 압축파일폴더/apache2/modules/
 # cp mod_jk.so /usr/local/apache2/modules/
 ```
 
 ## mod_jk 설정파일 수정
+
+![2023-07-31_7](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/cb1782a7-a9a6-4836-9206-436a6aa9032c){: .normal}<br>
 위에서 지정한 workers.properties 파일의 경로를 conf로 주었으니 conf로 이동합니다.<br>
 ```
 # cd /usr/local/apache2/conf
@@ -222,7 +228,7 @@ address 부분이 아마 처음에는 {::1}로 적혀있을겁니다.<br>
 0.0.0.0 으로 수정해줍니다.<br>
 
 톰캣 재시작한 뒤 8009 포트 열렸는지 확인합니다.<br>
-사진4{: .normal}<br>
+![2023-07-31_8](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/40cdbe83-036d-40e9-9208-896e0371dbe0){: .normal}<br>
 위 사진처럼 8009가 listen 상태이면 됩니다.<br>
 하지만 netstat 명령어가 없다고 나올 것 입니다.<br>
 ```
@@ -235,13 +241,14 @@ address 부분이 아마 처음에는 {::1}로 적혀있을겁니다.<br>
 test.jsp 파일의 내용은 ```<% out.print("this is test"0; %>``` 으로 합니다.<br>
 <br>
 ## 정상작동 확인
+![2023-07-31_9](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/fcc888e9-d6ad-43ec-b234-08ff5477ea57){: .normal}<br>
 아파치가 켜지지 않는다면 docker 에서 apache의 log를 확인합니다.<br>
-사진5{: .normal}
+파일을 찾을 수 없어서 오류가 발생했습니다.<br>
 저는 httpd.conf 파일에서 JkMoudle 의 설정파일 경로를 <br>
-conf/workers.properties 로 주고 실제론<br>
+conf/workers.properties 로 주고 실제 파일명은<br>
 conf/worker.properties 로 주어 오류가 발생했습니다.<br>
 <br>
-일단 ```localhost:8888/test.jsp```으로 들어가봅니다.<br>
+톰캣이 작동하는지 확인하기위해 ```localhost:8888/test.jsp```으로 들어가봅니다.<br>
 만약 서버에서 전송하는 데이터가 없다고 나오면 일단 넘어갑니다.<br>
 서버 포트를 잘못 설정하면 발생하는 일인데, 어차피 tomcat에 직접 접근할 이유가 없으므로 수정하지 않아도 될것같습니다.<br>
 수정하는 방법은 제일 아래에 작성했습니다.<br>
@@ -251,14 +258,17 @@ conf/worker.properties 로 주어 오류가 발생했습니다.<br>
 ```localhost:8080/test.jsp```에 접속합니다.<br>
 this is test 가 나오면 성공입니다. 이 외에 다른 오류가 나오면 아래 사항을 체크합니다.<br>
 <br>
+## apache 가 tomcat에게 요청을 못하는 경우
 도커에서 tomcat의 로그를 확인합니다.<br>
-사진5{: .normal}
+![2023-07-31_10](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/68b40ab3-f294-4f4e-9d48-43d0c9927853){: .normal}<br>
 사진과 같이 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to start component [Connetor[AJP/1.3-8009] 오류가 나온다면,<br>
 tomcat의 server.xml 파일에서 AJP 부분으로 이동한 뒤 ```secretRequired="false"```를 추가해준다.<sup>[출처](https://oingdaddy.tistory.com/398)</sup><br>
+![2023-07-31_11](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/1da09898-25cb-4e77-8c4f-7f1bc6ae6fbc){: .normal}<br>
 <br>
 apache 의 /usr/local/apache2/log/mod_jk.log 파일을 확인합니다.<br>
-사진6{: .normal}
-위 사진처럼 127.0.0.1:8009 에 도달하지 못할수도 있습니다.<br>
+![2023-07-31_12](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/a132b09d-9d9d-40c7-bb94-f80e2d2266fa){: .normal}<br>
+![2023-07-31_13](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/3b99ae9a-9056-4e5a-b4d6-6432a1cda64e){: .normal}<br>
+위 사진처럼 tomcat 으로 가는 주소가 127.0.0.1:8009 이면 tomcat에 도달하지 못할수도 있습니다.<br>
 저처럼 하나의 컴퓨터에 apache와 tomcat을 설치한게 아닌, 각각의 가상머신으로 설치했다면 해당 가상머신의 주소를 주어야 합니다.<br>
 다행히 컨테이너끼리는 같은 네트워크에 속해있으므로 간단하게 해결할 수 있습니다.<br>
 tomcat 에서 ifconfig를 입력하여, 172.17.0.x 주소를 기억합니다.<br>
