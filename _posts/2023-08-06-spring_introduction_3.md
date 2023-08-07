@@ -49,14 +49,15 @@ Optional은 리턴값이 Null 인 경우가 발생할 수도 있으면 사용한
 ![2023-08-04_3](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/7e45d468-6db2-4505-916d-80f28f515f91){: .normal}<br>
 interface를 구현합니다.<br>
 눈여겨 볼만한 것은 findById 메소드의 리턴값 Optional.ofNullable(store.get(id)) 입니다.<br>
-store.get(id)는 Member 자료형입니다. 이를 Optional<Member>로 바꿔주어야 하므로 Optional.ofNullable을 사용합니다.<br>
+store.get(id) 리턴값은 Member 자료형입니다. <br>
+이를 Optional<Member>로 바꿔주어야 하기도 하고, Null 인지 검사하기위해 Optional.ofNullable을 사용합니다.<br>
 정확한 개념은 Optional 검색하면 나옵니다. 이건 그냥 대략적으로 설명한 것이고 정확한 개념이 아닙니다.<br>
 <br>
 ```
 return store.values() // store.values() 는 member 들을 말함.
-			.stream() // store.values().stream() 은 member들을 Stream 객체로 만듬
-			.filter(member -> member.getName().equals(name)) // Stream의 member 의 이름과 매개변수로 받은 name의 이름이 동일한 것들을 filter(걸러냄)
-			.findAny();
+		.stream() // store.values().stream() 은 member들을 Stream 객체로 만듬
+		.filter(member -> member.getName().equals(name)) // Stream의 member 의 이름과 매개변수로 받은 name의 이름이 동일한 것들을 filter(걸러냄)
+		.findAny();
 ```
 그 다음은 findByName의 리턴값 입니다.<br>
 store.values().stream().filter() 에서 filter의 매개변수로 람다함수가 사용되었습니다.<br>
@@ -73,22 +74,22 @@ JUnit 프레임워크는 위 문제들을 해결해줍니다.<br>
 테스트 하려는 클래스의 경로와 동일하게 만들어 줍니다.<br>
 딱히 강제성이 있는것이 아니라 알아보기 쉽게 하려고 그런것 같습니다.(추측)<br>
 ![2023-08-04_5](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/5dd17f01-9089-4ae2-a701-520480e6ad35){: .normal}<br>
-\1. public 은 지워도 됩니다.
+1 : public 은 지워도 됩니다.
 다른 곳에서 가져다 사용할 클래스가 아니므로 public은 지워도 무방합니다.<br>
 <br>
-\2. 테스트할 클래스를 생성합니다.<br>
+2 : 테스트할 클래스를 생성합니다.<br>
 MemroryMemberRepository 의 save, findById 등 <br>
 메소드를 테스트를 하기위해 해당 클래스를 생성합니다.<br>
 <br>
-\3. Test 어노테이션을 작성합니다.<br>
-\4. 메소드 이름은 테스트 될 메소드와 동일하게 작성합니다<br>
+3 : Test 어노테이션을 작성합니다.<br>
+4 : 메소드 이름은 테스트 될 메소드와 동일하게 작성합니다<br>
 명명 규칙에 강제성이 있는것 같지는 않습니다.(아마도)<br>
 그냥 무얼 테스트 하는지 쉽게 알 수 있도록 이름을 동일하게 주는것 같습니다<br>
 ![2023-08-04_6](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/deff0801-2b7c-448b-9c34-309f28ed77da){: .normal}<br>
-\1. 리턴 값을 Member 로 받기
+1 : 리턴 값을 Member 로 받기
 findById 의 리턴 자료형은 Optional\<Member\> 입니다.<br>
 Member 자료형으로 받기 위해서 뒤에 .get() 을 사용합니다.<br>
-\2. 검증하기
+2 : 검증하기
 System.out.println(result == member) 로 결과를 확인해도 됩니다.<br>
 여기서는 assertThat().isEqualTo() 를 사용했습니다.<br>
 result 와 member 가 다르면, 콘솔창에 기대한 값과 실제 비교한 값이 출력이 됩니다.<br>
@@ -141,7 +142,24 @@ AfterEach 를 작성하기 전과 작성한 후 각각 테스트를 실행하여
 별개로 작성하고 관리하는 관점으로 학습하는 것이 목표인것 같습니다.<br>
 ![2023-08-05_9](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/11da5110-be4e-4aab-9a59-f6ad86eeba5b){: .normal}<br>
 ![2023-08-05_10](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/8c713a7f-8208-4afe-a5f3-a827e0fc999b){: .normal}<br>
+회원가입 기능을 작성합니다. 회원가입을 할 때, 중복된 닉네임이 존재하면 예외를 발생하는 로직을 작성합니다.<br>
+
+1 : 데이터를 저장할 객체를 생성합니다.<br>
+<br>
+2 : 중복된 닉네임을 검사하는 로직을 작성합니다.<br>
+컨트롤 + 알트 + v 를 누르면 리턴값을 자동으로 작성해줍니다.<br>
+findByName()의 리턴값이 존재하면 중복이란 뜻이므로 ifPresent 를 이용해 예외를 발생시킵니다.<br>
+<br>
+3 : 작성하고 보니 result 변수가 필요없습니다. 삭제합니다.<br>
+<br>
+4 : 중복 닉네임을 체크하는 로직을 하나의 메소드로 만듭니다.<br>
+윈도우 기준 컨트롤 + 알트 + 쉬프트 + t 를 누르고 나오는 메뉴에서 Extract method 를 선택하여 새로운 메소드로 작성합니다.<br>
+따로 강의에서 말씀은 안하셨지만, 제 생각엔 닉네임 중복 검사는 회원가입과 별개의 로직이므로 따로 작성한 것 같습니다.<br>
+뒤에는 회원가입을 마무리합니다.<br>
+<br>
 ![2023-08-05_11](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/951224dc-6d1e-462a-a57c-e79ca9f8bc10){: .normal}<br>
+학습목표가 동작원리를 파악하는 것이므로 <br>
+나머지 findMembers 와 findOne은 구색만 만들어줍니다.<br>
 
 ## 네이밍을 할 때 고려하는 것
 데이터 저장 로직에서는 동작의 관점에서 네이밍을 했다면,<br>
@@ -153,17 +171,26 @@ AfterEach 를 작성하기 전과 작성한 후 각각 테스트를 실행하여
 ## 서비스 테스트 
 ![2023-08-05_12](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/06e9019d-9950-493d-a301-616fa7d1b939){: .normal}<br>
 ![2023-08-05_13](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/093553db-f907-48fb-9cd3-215c84101ba7){: .normal}<br>
+서비스 로직을 테스트 하기위한 코드를 작성합니다.<br>
+클래스 이름에 포커스를 두고 컨트롤 쉬프트 t를 누르면 테스트파일을 자동으로 생성해줍니다.<br>
+테스트 파일의 경로를 보면 이전에 수동으로 만들었던 것과 동일합니다.<br>
 ![2023-08-05_14](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/450e5d46-6a47-4c0d-8f75-9d07717ce276){: .normal}<br>
+테스트 코드를 작성할 때 Given, When, Then 세 부분으로 나누어서 작성하면 좋다고 합니다.<br>
+각 부분의 의미는 단어의 뜻과 동일합니다.<br>
 ![2023-08-05_15](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/7f301997-fd8b-4c0f-a02e-ca89522799df){: .normal}<br>
+회원가입의 기본흐름에 대한 테스트 코드는 특별한 점이 없습니다.<br>
 ![2023-08-05_16](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/4ec907a2-4e81-4e3d-b6ba-aa27140b0a4c){: .normal}<br>
-
-중복 회원 테스트 
+Assertion.\* 이 기본적으로 import 되어 있지만 assertThat 을 사용할 수 없습니다.<br>
+그 이유는 기본으로 import 되어있는 Assertion은 JUnit 이기 때문입니다.<br>
+사용하고자 하는 assertThat 은 assertj 에 존재하기 때문에 import 해줍니다.<br>
+<br>
+중복 회원 테스트 <br>
 테스트의 목적은 오류를 찾아 고치는 것입니다.<br>
 정상흐름뿐만 아니라 비정상흐름 또한 테스트를 해야합니다.<br>
 join 메소드에서 비정상 흐름에 대해 예외처리를 해두었으니,<br>
 해당 예외처리가 정상 작동하는지 테스트합니다.<br>
 ![2023-08-05_17](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/25097b3d-2b03-4c7c-8cbc-b09ecb66da1a){: .normal}<br>
-\1. 예외가 발생하는지 검사<br>
+1 : 예외가 발생하는지 검사<br>
 Given 에서 잘못된 값을 넘겨주었으므로 예외가 발생합니다.<br>
 코드에 대해 공부하는 것이 아니라 테스트코드의 동작 과정을 공부하는 것이므로 자세한 설명은 없으셨습니다.<br>
 assertThrow 에서 예외가 발생하면, 해당 예외를 리턴값으로 넘겨주는 것 같습니다.<br>
@@ -172,12 +199,16 @@ Then에서 해당 예외가 의도한 것이 맞는지 체크합니다.<br>
 When 에서 try-catch 구문을 사용해도 된다고는 하셨습니다.<br>
 하지만 위에 작성한 코드가 더 좋은 문법이라고 하셨습니다.<br>
 이유는 따로 설명하지 않으셨습니다.<br>
+try catch 단점, 문제점 을 검색하여 찾아보니 성능문제, 가독성 문제가 언급이 되었습니다.<br>
+가독성은 확실히 나쁘긴합니다.<br>
+성능 문제에 대한건 반복문에 try catch 문을 사용하는 경우와 그렇지 않은 경우로 나뉘는데,<br>
+반복문이 아닌경우에도 성능문제가 발생할까? 라는 생각이 의문이 생깁니다. 아직은 왜 try catch 문을 사용하지 않는지 잘 모르겠습니다.<br>
 <br>
 ![2023-08-05_18](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/a02e9274-135a-4676-8137-4d4345d4f38a){: .normal}<br>
 저장소 초기화를 하려면 memberService 의 MemoryMemberRepository에 접근해야합니다.<br>
 물론 그렇게 하지 않아도 가능합니다.<br>
-값이 저장되는 변수인 store가 static 이므로 별도의 MemoryMemberRepository를 만들어서 초기화 할 수 있습니다.<br>
-하지만 결과적으로 보면 동일하지만, 학습목표와 맞지 않습니다.<br>
+값이 저장되는 변수인 store가 static 이므로 위 사진처럼 테스트코드에 별도의 MemoryMemberRepository를 만들어서 clearStore를 할 수 있습니다.<br>
+하지만 결과적으로 보면 동일하지만, 의도와 맞지 않습니다.<br>
 <br>
 ![2023-08-05_19](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/60b07d5a-e521-4a42-a48a-357382c2f627){: .normal}<br>
 기존의 코드는 memberService 내부에 MemoryMemberRepository 객체를 생성했습니다.<br>
