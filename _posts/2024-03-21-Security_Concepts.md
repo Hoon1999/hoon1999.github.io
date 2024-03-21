@@ -1,10 +1,7 @@
 ---
 title: 보안 요소
-  - 제목
 date: 2024-03-21 14:00:00 +09:00
-categories:
-  - 학교 수업
-  - 컴퓨터 보안
+categories: [학교 수업, 컴퓨터 보안]
 tags: []
 use_math: true
 ---
