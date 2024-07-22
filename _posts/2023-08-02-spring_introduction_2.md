@@ -1,7 +1,7 @@
 ---
 title: 스프링 입문 2강
 date: 2023-08-02 14:46:00 +09:00
-categories: [개발, Spring]
+categories: [개발, Spring 0_입문]
 tags:
   [
     Spring,
