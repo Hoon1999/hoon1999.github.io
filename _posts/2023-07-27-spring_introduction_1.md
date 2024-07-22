@@ -1,7 +1,7 @@
 ---
 title: 스프링 입문 1강
 date: 2023-07-27 12:36:00 +09:00
-categories: [개발, Spring]
+categories: [개발, Spring 0_입문]
 tags:
   [
     Spring,
@@ -71,7 +71,7 @@ main 메소드의 왼쪽에 실행을 눌러 실행합니다.<br>
 ## 뷰 동작환경 학습
 ![2023-07-31_8](https://github.com/Hoon1999/hoon1999.github.io/assets/100833901/09f3d754-dc61-461b-a9f9-8e1b4afc997b){: .normal}<br>
 welcome page의 기본 경로는 resources/static/index.html 입니다.<br>
-```
+```html
 <!DOCTYPE HTML>
 <html>
 <head>
