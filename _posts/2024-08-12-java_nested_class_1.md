@@ -1,5 +1,5 @@
 ---
-title: \[java\] 중첩 클래스 의미, 선언방법
+title: "[java] 중첩 클래스 의미, 선언방법"
 date: 2024-08-12 17:40:00 +09:00
 categories: [개발언어, Java]
 tags:
