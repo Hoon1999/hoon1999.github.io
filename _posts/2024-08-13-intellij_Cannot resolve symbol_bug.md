@@ -4,9 +4,9 @@ date: 2024-08-08 17:46:00 +09:00
 categories: [개발환경, IntelliJ]
 tags:
   [
-    태그1,
-    태그2,
-    태그3
+    IDE,
+    Intellij,
+    오류
   ]
 use_math: true
 ---
