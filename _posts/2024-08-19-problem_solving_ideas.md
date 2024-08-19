@@ -31,4 +31,4 @@ Stack 자료구조를 사용한다고 가정하고 문제를 해결할 방법을
 
 <hr>
 **References** <br>
-입력을 회전시켜 해결방법 생각하기 ([10주완성 C++ 코딩테스트; 1-N](https://www.inflearn.com/course/10%EC%A3%BC%EC%99%84%EC%84%B1-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%B0%EB%8F%8C))<br>
+입력을 회전시켜 해결방법 생각하기 ([10주완성 C++ 코딩테스트; 1-M](https://www.inflearn.com/course/10%EC%A3%BC%EC%99%84%EC%84%B1-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%B0%EB%8F%8C))<br>
