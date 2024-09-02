@@ -5,7 +5,8 @@ categories: [프로젝트, 카페오더]
 tags:
   [
     프로젝트 회고,
-    JavaFX,
+    Database,
+    DB,
     Cafe Order
   ]
 use_math: true
