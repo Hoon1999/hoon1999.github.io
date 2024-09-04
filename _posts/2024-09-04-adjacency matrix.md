@@ -50,5 +50,5 @@ from 과 to 가 표시되어 있으므로 규칙에 맞게 단방향 그래프�
 
 
 **Reference** <br>
-[10주완성 C++ 코딩테스트; 1-M](https://www.inflearn.com/course/10%EC%A3%BC%EC%99%84%EC%84%B1-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%B0%EB%8F%8C) <br>
+[10주완성 C++ 코딩테스트; 2-4](https://www.inflearn.com/course/10%EC%A3%BC%EC%99%84%EC%84%B1-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%B0%EB%8F%8C) <br>
 [Graph (그래프)](https://sophia2730.tistory.com/entry/Data-Structure-Graph-%EA%B7%B8%EB%9E%98%ED%94%84)
