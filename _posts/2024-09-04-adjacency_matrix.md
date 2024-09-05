@@ -40,7 +40,7 @@ int a[4][4] = {
   {1, 0, 1, 1},
   {1, 1, 0, 0},
   {0, 1, 0, 0}
-}
+};
 ```
 
 행렬의 이름을 a 라고 하면 a[from][to]라는 2차원 배열로 표현할 수 있음을 알 수 있다.<br>
@@ -49,6 +49,7 @@ int a[4][4] = {
 from 과 to 가 표시되어 있으므로 규칙에 맞게 단방향 그래프의 간선의 값을 행렬에 채워넣으면 된다.<br>
 
 
-**Reference** <br>
+
+## Reference
 [10주완성 C++ 코딩테스트; 2-4](https://www.inflearn.com/course/10%EC%A3%BC%EC%99%84%EC%84%B1-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%B0%EB%8F%8C) <br>
 [Graph (그래프)](https://sophia2730.tistory.com/entry/Data-Structure-Graph-%EA%B7%B8%EB%9E%98%ED%94%84)
