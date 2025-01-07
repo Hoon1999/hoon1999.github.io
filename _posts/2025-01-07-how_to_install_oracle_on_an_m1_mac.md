@@ -14,7 +14,7 @@ M1 Mac 에 Oracle 을 설치할 경우 주의할 점
 >현재 기준으로 Oracle 은 arm 환경에서 실행되지 않습니다. 따라서 Docker 에 Oracle 를 바로 설치해도 실행되지 않습니다. 이것도 모르고 몇 시간 동안 오류와 씨름했습니다. 부디 다른 분들은 이런 시행착오를 겪지 않길 바랍니다.
 >출처: https://stackoverflow.com/questions/69069927/oracle-docker-container-not-working-properly-on-mac-m1-bigsur
 
-Apple silicon Mac 에서 Oracle 을 설치하려면 x86/64가상 환경을 통해 설치해야합니다.
+Apple silicon Mac 에서 Oracle 을 설치하려면 x86/64가상 환경을 통해 설치해야합니다.
 
 일단 도커 홈페이지에 들어가서 Docker 를 다운받고 설치해줍니다.
 그리고 아래 명령어를 따라가면 됩니다.
