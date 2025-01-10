@@ -1,13 +1,13 @@
 ---
 title: "[M1 Mac] oracle 설치"
 date: 2025-01-07 19:20:00 +09:00
-categories:
-  - 가상환경
-  - Docker
+categories: [가상환경, Docker]
 tags:
-  - 가상환경
-  - docker
-  - oracle
+  [
+    가상환경,
+    docker,
+    oracle
+  ]
 use_math: true
 ---
 M1 Mac 에 Oracle 을 설치할 경우 주의할 점
