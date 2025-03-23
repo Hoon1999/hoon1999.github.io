@@ -5,7 +5,7 @@ categories: [블로그 히스토리]
 tags:
   [
     Chirpy,
-	error
+	Error
   ]
 use_math: true
 ---

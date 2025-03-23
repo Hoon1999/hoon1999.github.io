@@ -5,8 +5,8 @@ categories: [가상환경, Docker]
 tags:
   [
     가상환경,
-    docker,
-    oracle
+    Docker,
+    Oracle
   ]
 use_math: true
 ---

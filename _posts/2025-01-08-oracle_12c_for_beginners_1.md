@@ -5,7 +5,7 @@ categories: [Database, 오라클입문]
 tags:
   [
     Database,
-    oracle
+    Oracle
   ]
 use_math: true
 ---
