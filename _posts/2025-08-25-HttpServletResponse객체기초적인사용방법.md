@@ -50,7 +50,7 @@ public class ResponseHeaderServlet extends HttpServlet {
 }
 ```
 
-![사진1]()<br>
+![사진1](https://github.com/Hoon1999/hoon1999.github.io/blob/main/assets/img/2025-08-25-HttpServletResponse객체기초적인사용방법/1.png?raw=true)<br>
 
 response 헤더를 살펴보면 직접 넣은 값들을 확인할 수 있다.(사진의 cookie 는 새로고침해야 볼 수 있음)<br>
 응답 코드는 직접 숫자를 집어넣을 수도 있지만 미리 정의된 값을 사용하는게 좋고, ```response.setHeader()``` 를 사용하면 범용적으로 사용할 수 있지만 오타가 발생하면 의도하지 않은 결과가 발생할 수 있다.<br>
