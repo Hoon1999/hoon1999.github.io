@@ -9,6 +9,7 @@ tags:
     KNUNG
   ]
 use_math: true
+published: false
 ---
 
 ## 개요
