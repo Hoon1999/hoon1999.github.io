@@ -1,15 +1,13 @@
 ---
-title: "Servlet 과 JSP 로 회원 관리 예제 만들고 비교"
+title: Servlet 과 JSP 로 회원 관리 예제 만들고 비교
 date: 2025-08-27 11:00:00 +09:00
-categories: [개발, Spring 2_MVC 핵심]
+categories: [Framework, Spring-3 MVC 핵심]
 tags:
-  [
-    Spring,
-    inflearn,
-    WAS,
-    Servlet,
-    JSP
-  ]
+  - Spring
+  - inflearn
+  - WAS
+  - Servlet
+  - JSP
 ---
 
 > 이 게시글은 인프런의 유료 강의 [스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술](https://www.inflearn.com/course/스프링-mvc-1)을 수강하며 공부한 내용을 담고있습니다.<br>

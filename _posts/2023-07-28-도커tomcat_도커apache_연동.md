@@ -1,7 +1,7 @@
 ---
 title: 도커 Tomcat Apache 연동
 date: 2023-07-28 14:28:00 +09:00
-categories: [가상환경, Docker]
+categories: [Infra, Docker]
 tags:
   [
     가상환경,

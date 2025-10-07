@@ -1,7 +1,7 @@
 ---
 title: chirpy comments 활성화 하는 방법
 date: 2023-07-27 06:53:00 +09:00
-categories: [블로그 히스토리]
+categories: [블로그, 블로그 관련]
 tags:
   [
     Chirpy,

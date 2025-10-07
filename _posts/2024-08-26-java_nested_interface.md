@@ -1,7 +1,7 @@
 ---
 title: "[java] 중첩 인터페이스"
 date: 2024-08-26 08:57:00 +09:00
-categories: [개발언어, Java]
+categories: [Language, Java 기초]
 tags:
   [
     Java,

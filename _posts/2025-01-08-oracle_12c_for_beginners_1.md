@@ -1,7 +1,7 @@
 ---
 title: "오라클 메모리 구조"
 date: 2025-01-08 02:20:00 +09:00
-categories: [Database, 오라클입문]
+categories: [Database, Oracle 기초]
 tags:
   [
     Database,

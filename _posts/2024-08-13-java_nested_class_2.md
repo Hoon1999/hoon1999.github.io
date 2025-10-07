@@ -1,7 +1,7 @@
 ---
 title: "[java] 중첩 클래스 접근 제한"
 date: 2024-08-13 17:40:00 +09:00
-categories: [개발언어, Java]
+categories: [Language, Java 기초]
 tags:
   [
     Java,

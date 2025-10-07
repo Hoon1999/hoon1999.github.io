@@ -1,7 +1,7 @@
 ---
 title: "HttpServletRequest 객체 - 요청 데이터"
 date: 2025-08-22 21:55:00 +09:00
-categories: [개발, Spring 2_MVC 핵심]
+categories: [Framework, Spring-3 MVC 핵심]
 tags:
   [
     Spring,

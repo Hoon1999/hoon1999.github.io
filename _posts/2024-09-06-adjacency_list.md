@@ -1,7 +1,7 @@
 ---
 title: "[자료구조]인접 리스트"
 date: 2024-09-06 11:17:00 +09:00
-categories: [알고리즘, 공통]
+categories: [Algorithm, 알고리즘 이론]
 tags:
   [
     자료구조,

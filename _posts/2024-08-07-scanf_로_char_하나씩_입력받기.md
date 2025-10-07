@@ -1,7 +1,7 @@
 ---
 title: scanf(" %c", &ch) 로 문자 하나씩 입력받기
 date: 2024-08-07 23:04:00 +09:00
-categories: [개발언어, C]
+categories: [Language, C 기초]
 tags:
   [
     C,

@@ -1,7 +1,7 @@
 ---
 title: assets/js/dist/*.min.js not found 오류
 date: 2023-07-25 16:09:00 +09:00
-categories: [블로그 히스토리]
+categories: [블로그, 블로그 관련]
 tags:
   [
     Chirpy,

@@ -1,7 +1,7 @@
 ---
 title: DML 이란
 date: 2023-08-01 09:23:00 +09:00
-categories: [Database, 이론]
+categories: [Database, 데이터베이스 이론]
 tags:
   [
     DB,

@@ -1,7 +1,7 @@
 ---
 title: "HttpServletResponse 객체 기초적인 사용방법"
 date: 2025-08-25 19:34:00 +09:00
-categories: [개발, Spring 2_MVC 핵심]
+categories: [Framework, Spring-3 MVC 핵심]
 tags:
   [
     Spring,

@@ -1,7 +1,7 @@
 ---
 title: 모듈러 산술(Modular Arithmetic) 성질
 date: 2024-08-19 14:02:00 +09:00
-categories: [알고리즘, 공통]
+categories: [Algorithm, 알고리즘 이론]
 tags:
   [
     정수론,

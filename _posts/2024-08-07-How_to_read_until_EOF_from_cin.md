@@ -1,7 +1,7 @@
 ---
 title: cin 을 통해 EOF 를 받는 방법
 date: 2024-08-07 23:04:00 +09:00
-categories: [개발언어, Cpp]
+categories: [Language, Cpp 기초]
 tags:
   [
     Cpp,

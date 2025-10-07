@@ -1,7 +1,7 @@
 ---
 title: "actions/upload-artifact: v3 오류 해결"
 date: 2025-02-04 01:18:00 +09:00
-categories: [블로그 히스토리]
+categories: [블로그, 블로그 관련]
 tags:
   [
     Chirpy,

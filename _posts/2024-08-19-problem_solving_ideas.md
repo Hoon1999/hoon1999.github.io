@@ -1,7 +1,7 @@
 ---
 title: 문제해결 아이디어 
 date: 2024-08-19 09:17:00 +09:00
-categories: [알고리즘, 공통]
+categories: [Algorithm, 알고리즘 이론]
 tags:
   [
     코딩테스트,

@@ -1,7 +1,7 @@
 ---
 title: "vue router 세팅"
 date: 2025-10-04 18:21:00 +09:00
-categories: [개발, vue]
+categories: [Framework, Vue]
 tags:
   [
     vue,

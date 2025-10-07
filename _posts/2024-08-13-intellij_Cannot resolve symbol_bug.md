@@ -1,7 +1,7 @@
 ---
 title: "[Intellij] Cannot resolve symbol"
 date: 2024-08-08 17:46:00 +09:00
-categories: [개발환경, IntelliJ]
+categories: [IntelliJ, IntelliJ 오류]
 tags:
   [
     IDE,

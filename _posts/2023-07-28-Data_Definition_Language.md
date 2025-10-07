@@ -1,7 +1,7 @@
 ---
 title: DDL 이란
 date: 2023-07-28 08:46:00 +09:00
-categories: [Database, 이론]
+categories: [Database, 데이터베이스 이론]
 tags:
   [
     DB,

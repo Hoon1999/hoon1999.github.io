@@ -1,7 +1,7 @@
 ---
 title: 초기 세팅
 date: 2024-06-26 16:36:00 +09:00
-categories: [개발, Spring 1_핵심원리 Basic]
+categories: [Framework, Spring-2 Basic]
 tags:
   [
     Spring,

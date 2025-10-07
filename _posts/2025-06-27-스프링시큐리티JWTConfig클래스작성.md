@@ -1,7 +1,7 @@
 ---
 title: "[Spring Security JWT] Config 클래스 작성"
 date: 2025-06-27 14:10:00 +09:00
-categories: [개발, Spring Security JWT]
+categories: [Framework, Spring Security JWT]
 tags:
   [
     Spring,

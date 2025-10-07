@@ -1,13 +1,14 @@
 ---
 title: "로컬 환경에서 Github Actions 테스트하기"
 date: 2025-10-07 18:27:00 +09:00
-categories: [개발, AWS]
+categories: [Infra, AWS]
 tags:
   [
     GithubActions
   ]
 use_math: true
 published: true
+permalink: /:categories/:title
 ---
 
 ## 개요

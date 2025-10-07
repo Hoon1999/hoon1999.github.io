@@ -1,7 +1,7 @@
 ---
 title: Chirpy 템플릿 적용하면서 만난 오류들
 date: 2023-06-26 09:28:00 +09:00
-categories: [블로그 히스토리]
+categories: [블로그, 블로그 관련]
 tags:
   [
     Jekyll,

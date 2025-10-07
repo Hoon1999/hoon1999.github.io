@@ -1,7 +1,7 @@
 ---
 title: "[M1 Mac] oracle 설치"
 date: 2025-01-07 19:20:00 +09:00
-categories: [가상환경, Docker]
+categories: [Infra, Docker]
 tags:
   [
     가상환경,

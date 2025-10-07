@@ -1,7 +1,7 @@
 ---
 title: "HttpServletRequest 객체 기초"
 date: 2025-08-18 00:22:00 +09:00
-categories: [개발, Spring 2_MVC 핵심]
+categories: [Framework, Spring-3 MVC 핵심]
 tags:
   [
     Spring,

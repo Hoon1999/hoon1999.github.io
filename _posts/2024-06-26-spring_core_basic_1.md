@@ -1,7 +1,7 @@
 ---
 title: 스프링을 사용하는 이유
 date: 2024-06-26 14:46:00 +09:00
-categories: [개발, Spring 1_핵심원리 Basic]
+categories: [Framework, Spring-2 Basic]
 tags:
   [
     Spring,

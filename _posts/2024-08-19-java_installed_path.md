@@ -1,7 +1,7 @@
 ---
 title: "[mac] Java 설치 경로(JavaVirtualMachines 없는 경우)"
 date: 2024-08-19 09:46:00 +09:00
-categories: [개발환경, 기타]
+categories: [Mac, JVM]
 tags:
   [
     mac,
