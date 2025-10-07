@@ -8,7 +8,6 @@ tags:
   ]
 use_math: true
 published: true
-permalink: /:categories/:title
 ---
 
 ## 개요
