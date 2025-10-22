@@ -6,7 +6,7 @@ tags:
   [
     vue,
     store,
-    state,
+    getter,
     pinia
   ]
 ---
