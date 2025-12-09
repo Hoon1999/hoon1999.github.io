@@ -70,8 +70,20 @@ end
 
 변수에 보관하는 값을 product 로 바꾸고, mail 을 받는 사람을 구독자로 바꿨다.<br>
 사실 이것만 보면 이해가 안될수가 있다. 이미지를 보면 다음과 같다.<br>
-![사진1]()<br>
-```ProductMailer.with(product: product, subscriber: subscriber).in_stock.deliver_later```를 실행하면 with 에 있는 매개변수는 ProductMailer 의 in_stock 메서드로 전달된다.<br>
+![사진1](https://github.com/Hoon1999/hoon1999.github.io/blob/main/assets/img/2025-11-26-ROR_action_mailer_and_email_notification/1.png?raw=true)<br>
+```ProductMailer.with(매개변수).in_stock.deliver_later```를 실행하면 with 에 있는 매개변수는 ProductMailer 의 in_stock 메서드로 전달된다.<br>
+
+사진을 다시 보니 너무 지저분하다 차근차근 설명하겠다.<br>
+우선 우측 상단의 ```in_stock.text.erb``` 템플릿을 보자. ```@product``` 를 사용하는 것을 볼 수 있다.<br>
+이건 ```in_stock``` 메서드로부터 전달 받은 값이다. 템플릿에 변수를 사용하고 싶다면 메서드로부터 전달받아야한다.<br>
+```@product``` 변수는 ```params[:product]``` 로 부터 할당되었다. 해당 파라미터는 HTTP 요청으로 받을수도 있고 다른 여러 방법으로 받을 수 있지만 여기선 ```ProductMailer.with(매개변수)``` 를 통해 전달받을 것이다.<br>
+원래 다른 코드에서 ```ProductMailer.with(매개변수).메서드명.deliver_later``` 을 호출하면 되지만 그 전에 콘솔에서 먼저 테스트를 해보자.<br>
+
+```Product.first``` 로 객체를 하나 가져오자. Pants 가 가져와졌다.<br>
+메일을 받을 구독자도 가져와보자. foo@bar.org 라는 이메일을 가진 구독자가 가져와졌다. 비록 filter 되어 보이진 않지만 내가 등록한 이메일이니 알고있다.<br>
+
+가져온 두 객체를 매개변수로 전달하자. ```ProductMailer.with(매개변수).메서드명.deliver_later``` 를 하면 매개변수가 메서드로 params 형식으로 전달된다. ```.deliver_later``` 는 메일을 발송하는 역할이다.<br>
+
 
 ## email template 수정
 발송될 메일의 내용을 수정해보자.<br>
@@ -95,7 +107,7 @@ Good News!
 <%= @product.name %> 의 재고가 생겼습니다.
 <%= product_url(@product) %>
 ```
-html 이 아니므로 anchor 태그를 사용할 수 없다. 그래서 link_to 헬퍼를 안쓰고 주소가 출력되게 한 것이다.<br>
+html 이 아니므로 anchor 태그를 사용할 수 없다. 그래서 link_to 헬퍼를 안쓰고 주소가 바로 출력되게 한 것이다.<br>
 
 ## 중간 테스트
 
@@ -228,7 +240,7 @@ end
 
 그 다음 Product model 에서 Notification 관련 코드들을 가져오자.<br>
 
-![사진]()<br>
+![사진2](https://github.com/Hoon1999/hoon1999.github.io/blob/main/assets/img/2025-11-26-ROR_action_mailer_and_email_notification/2.png?raw=true)<br>
 
 ```ruby
 # app/models/product/notifications.rb
@@ -254,6 +266,7 @@ end
 ```
 
 ```ruby
+# notifications.rb 로 옮긴 코드를 지운후 깔끔해진 Product 의 모습
 class Product < ApplicationRecord
   include Notifications
 
