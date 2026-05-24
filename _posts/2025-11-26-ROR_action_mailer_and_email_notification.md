@@ -211,7 +211,7 @@ after_update_commit 은 model 에 update 가 수행되면 호출할 메서드를
 코드를 구현하면 다음과 같다.<br>
 
 ```
-  after_update_commit :nofify_subscribers, if: :back_in_stock?
+  after_update_commit :notify_subscribers, if: :back_in_stock?
 
   def back_in_stock?
     inventory_count_previously_was.zero? && inventory_count.positive?
@@ -249,7 +249,7 @@ module Product::Notifications
 
     included do
         has_many :subscribers, dependent: :destroy
-        after_update_commit :nofify_subscribers, if: :back_in_stock?
+        after_update_commit :notify_subscribers, if: :back_in_stock?
     end
 
     
